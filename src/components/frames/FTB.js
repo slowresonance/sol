@@ -8,13 +8,11 @@ const FTB = () => {
         <div className="title">
           Dynamics of the Interplanetary Gas and Magnetic Fields
         </div>
-        <div className="sub-title">Parker, E. N. November 1958</div>
+        <div className="sub-title">Dr Eugene Parker</div>
         <div className="img">
           <img src="./assets/ftb.png" alt="" />
         </div>
-        <div className="sub-title c5 underline">
-          Astrophysical Journal, vol. 128, p.664
-        </div>
+        <div className="sub-title c5 underline">Astrophysical Journal</div>
       </div>
       <div id="right-flex">
         <div className="p">

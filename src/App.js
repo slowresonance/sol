@@ -3,6 +3,7 @@ import Frame from "./components/Frame";
 import Scroll from "./components/Scroll";
 import "./style/style.css";
 import { useState } from "react";
+import Collection from "./components/Collection";
 
 function App() {
   const timeline = [
@@ -11,21 +12,24 @@ function App() {
     { name: "1962", frameId: "Y62", color: "pink" },
   ];
 
-  const [activeFrameId, setActiveFrameId] = useState("FTB");
+  const [activeFrameId, setActiveFrameId] = useState("Y58");
 
   return (
-    <div id="app">
-      <div id="left"></div>
-      <div id="mid">
-        <Header timeline={timeline} activeFrameId={activeFrameId}></Header>
-        <Frame timeline={timeline} activeFrameId={activeFrameId}></Frame>
-        <Scroll
-          timeline={timeline}
-          setActiveFrameId={setActiveFrameId}
-        ></Scroll>
+    <>
+      <div id="app">
+        <div id="left"></div>
+        <div id="mid">
+          <Header timeline={timeline} activeFrameId={activeFrameId}></Header>
+          <Frame timeline={timeline} activeFrameId={activeFrameId}></Frame>
+          <Scroll
+            timeline={timeline}
+            setActiveFrameId={setActiveFrameId}
+          ></Scroll>
+        </div>
+        <div id="right"></div>
       </div>
-      <div id="right"></div>
-    </div>
+      <Collection></Collection>
+    </>
   );
 }
 

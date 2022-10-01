@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import Stamp from "../Stamp";
 
 const Y58 = () => {
+  const [found, setFound] = useState(false);
   return (
     <div id="Y58">
       <div id="left-flex">
         <div className="p">
-          The article predicted the existence of the solar wind, a stream of
-          particles continuously escaping the Sun.
+          The article predicted the existence of the{" "}
+          <span
+            className="keyword"
+            onClick={() => {
+              !found && setFound(true);
+            }}
+          >
+            solar wind
+          </span>
+          , a stream of particles continuously escaping the Sun.
         </div>
         <div className="p">
           Parker's theory described that in the sun's corona, plasma is
@@ -36,6 +46,12 @@ const Y58 = () => {
             How are solar winds formed? - kurzgesagt
           </div>
         </div>
+
+        <Stamp
+          img={"./assets/solar-flare.png"}
+          alt={"NASA Solar Flare Stamp"}
+          found={found}
+        ></Stamp>
       </div>
     </div>
   );
