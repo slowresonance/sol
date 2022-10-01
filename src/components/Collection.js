@@ -1,39 +1,22 @@
 import React, { useState } from "react";
 import Stamp from "./Stamp";
 
-const Collection = () => {
+const Collection = ({ collection, setCollection }) => {
   const [show, setShow] = useState(false);
 
   return (
     <div id="collection">
       {show && (
         <div id="canvas">
-          <div className="stamp-collected">
-            <Stamp
-              img={"./assets/solar-flare.png"}
-              alt={"NASA Solar Flare Stamp"}
-            ></Stamp>
-          </div>
-          <div className="stamp-collected">
-            <Stamp
-              img={"./assets/solar-flare.png"}
-              alt={"NASA Solar Flare Stamp"}
-            ></Stamp>
-          </div>
-          <div className="stamp-collected">
-            <Stamp
-              img={"./assets/solar-flare.png"}
-              alt={"NASA Solar Flare Stamp"}
-            ></Stamp>
-          </div>
-          <div className="stamp-collected">
-            <Stamp
-              img={"./assets/solar-flare.png"}
-              alt={"NASA Solar Flare Stamp"}
-            ></Stamp>
-          </div>
-          <div className="stamp-collected"></div>
-          <div className="stamp-collected"></div>
+          {collection.map((collectable) => (
+            <div className="stamp-collected" key={collectable.alt}>
+              <Stamp
+                img={collectable.img}
+                alt={collectable.alt}
+                found={collectable.found}
+              ></Stamp>
+            </div>
+          ))}
         </div>
       )}
       <div id="menu">

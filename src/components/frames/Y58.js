@@ -1,13 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Stamp from "../Stamp";
 
-const Y58 = () => {
+const Y58 = ({ collection, setCollection }) => {
   const [found, setFound] = useState(false);
+  let collectible = {
+    id: "solar-flare",
+    img: "./assets/solar-flare.png",
+    alt: "NASA Solar Flare Stamp",
+    found: false,
+  };
+
+  useEffect(() => {
+    if (!found) return;
+    for (let c of collection) {
+      if (c.id === collectible.id) {
+        return;
+      }
+    }
+    const updatedCollectable = { ...collectible, found: true };
+    setCollection([...collection, updatedCollectable]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [found]);
+
   return (
     <div id="Y58">
       <div id="left-flex">
         <div className="p">
-          The article predicted the existence of the{" "}
+          The article predicted the existence of the
           <span
             className="keyword"
             onClick={() => {
