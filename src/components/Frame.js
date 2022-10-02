@@ -1,34 +1,46 @@
 import React from "react";
-import FTB from "./frames/FTB";
-import Y58 from "./frames/Y58";
-import TSM1 from "./frames/TSM1";
-import TSM2 from "./frames/TSM2";
+import ParkerSolarProbe from "./Frames/ParkerSolarProbe";
+import SolarWind from "./Frames/SolarWind";
+import TheSolarMission from "./Frames/TheSolarMission";
+import TheSolarMission2 from "./Frames/TheSolarMission2";
 
-const Frame = ({ timeline, activeFrameId, collection, setCollection }) => {
+const Frame = ({ frameId, collection, setCollection }) => {
+  console.log(collection);
   const frameSwitch = () => {
-    switch (activeFrameId) {
-      case "FTB":
+    switch (frameId) {
+      case "parker-solar-probe":
         return (
-          <FTB collection={collection} setCollection={setCollection}></FTB>
+          <ParkerSolarProbe
+            collection={collection}
+            setCollection={setCollection}
+          ></ParkerSolarProbe>
         );
-      case "Y58":
+      case "solar-wind":
         return (
-          <Y58 collection={collection} setCollection={setCollection}></Y58>
+          <SolarWind
+            collection={collection}
+            setCollection={setCollection}
+          ></SolarWind>
         );
-      case "TSM1":
+      case "the-solar-mission":
         return (
-          <TSM1 collection={collection} setCollection={setCollection}></TSM1>
+          <TheSolarMission
+            collection={collection}
+            setCollection={setCollection}
+          ></TheSolarMission>
         );
-      case "TSM2":
+      case "the-solar-mission-2":
         return (
-          <TSM2 collection={collection} setCollection={setCollection}></TSM2>
+          <TheSolarMission2
+            collection={collection}
+            setCollection={setCollection}
+          ></TheSolarMission2>
         );
       default:
-        console.log("Switch Default");
+        break;
     }
   };
-
-  return <div id="frame">{frameSwitch()}</div>;
+  return <div id="frame">{frameSwitch(frameId)}</div>;
 };
 
 export default Frame;

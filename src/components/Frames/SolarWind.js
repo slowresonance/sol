@@ -1,41 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Stamp from "../Stamp";
+import React from "react";
 
-const Y58 = ({ collection, setCollection }) => {
-  const [found, setFound] = useState(false);
-  let collectible = {
-    id: "solar-flare",
-    img: "./assets/solar-flare.png",
-    alt: "NASA Solar Flare Stamp",
-    found: false,
-  };
-
-  useEffect(() => {
-    if (!found) return;
-    for (let c of collection) {
-      if (c.id === collectible.id) {
-        return;
-      }
-    }
-    const updatedCollectable = { ...collectible, found: true };
-    setCollection([...collection, updatedCollectable]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [found]);
-
+const SolarWind = () => {
   return (
-    <div id="Y58">
-      <div id="left-flex">
+    <div id="solar-wind">
+      <div id="flex-left">
         <div className="p">
-          The article predicted the existence of the
-          <span
-            className="keyword"
-            onClick={() => {
-              !found && setFound(true);
-            }}
-          >
-            solar wind
-          </span>
-          , a stream of particles continuously escaping the Sun.
+          The article predicted the existence of the solar wind, a stream of
+          particles continuously escaping the Sun.
         </div>
         <div className="p">
           Parker's theory described that in the sun's corona, plasma is
@@ -48,6 +19,7 @@ const Y58 = ({ collection, setCollection }) => {
           dragging the sun's magnetic field along with it.
         </div>
       </div>
+
       <div id="right-flex">
         <div className="video-container">
           <div className="embed">
@@ -65,15 +37,9 @@ const Y58 = ({ collection, setCollection }) => {
             How are solar winds formed? - kurzgesagt
           </div>
         </div>
-
-        <Stamp
-          img={"./assets/solar-flare.png"}
-          alt={"NASA Solar Flare Stamp"}
-          found={found}
-        ></Stamp>
       </div>
     </div>
   );
 };
 
-export default Y58;
+export default SolarWind;

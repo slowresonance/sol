@@ -1,9 +1,8 @@
 import React from "react";
-import Stamp from "../Stamp";
 
-const TSM1 = () => {
+const TheSolarMission = () => {
   return (
-    <div id="TSM1">
+    <div id="the-solar-mission">
       <div className="left-flex">
         <div className="mission">
           The main goal of the mission is to trace how energy and heat move
@@ -34,4 +33,4 @@ const TSM1 = () => {
   );
 };
 
-export default TSM1;
+export default TheSolarMission;
