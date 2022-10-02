@@ -35,7 +35,6 @@ const TheSolarMission2 = ({ collection, setCollection }) => {
             <span
               className="keyword"
               onClick={() => {
-                setImg();
                 !found && setFound(true);
               }}
             >
